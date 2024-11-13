@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TatakTipid - Budget Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="budget.html">Budget</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="tipidfinder.html">Tipid Finder</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Budget Tracker</h1>
+        <p>Manage your weekly budget efficiently and visualize your expenses.</p>
+    </header>
+
+    <main>
+        <section id="budget-input">
+            <h2>Enter Your Weekly Budget</h2>
+            <form id="budget-form">
+                <label for="weekly-budget">Weekly Budget:</label>
+                <input type="number" id="weekly-budget" name="weekly-budget" required>
+                
+                <label for="food">Food:</label>
+                <input type="number" id="food" name="food" required>
+                
+                <label for="transport">Transport:</label>
+                <input type="number" id="transport" name="transport" required>
+                
+                <label for="entertainment">Entertainment:</label>
+                <input type="number" id="entertainment" name="entertainment" required>
+                
+                <label for="bills">Bills:</label>
+                <input type="number" id="bills" name="bills" required>
+                
+                <!-- The button must be here, below the last input -->
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        
+
+        <section id="budget-chart">
+            <h2>Budget Distribution</h2>
+            <canvas id="myChart"></canvas> <!-- Removed width and height attributes -->
+        </section>
+        
+    </main>
+
+    <footer>
+        <a href="#"><img src="icon-x.png" alt="X icon"></a>
+        <a href="#"><img src="icon-instagram.png" alt="Instagram icon"></a>
+        <a href="#"><img src="icon-youtube.png" alt="YouTube icon"></a>
+        <a href="#"><img src="icon-linkedin.png" alt="LinkedIn icon"></a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

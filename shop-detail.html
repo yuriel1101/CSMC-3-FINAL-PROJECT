@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <!-- Other navigation links -->
+        </ul>
+    </nav>
+
+    <div class="single-product">
+        <div class="row">
+            <div class="col-2">
+                <img id="product-image" src="" width="100%" alt="Product Image">
+            </div>
+            <div class="col-2">
+                <h1 id="product-name"></h1>
+                <p id="product-description"></p>
+                <p><strong>Price: </strong><span id="product-price"></span></p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+
+    <script>
+        // Product data object
+        const products = {
+            1: {
+                name: "Product 1",
+                description: "This is the detailed description for Product 1.",
+                price: "$29.99",
+                image: "Images/download.jpg"
+            },
+            2: {
+                name: "Product 2",
+                description: "This is the detailed description for Product 2.",
+                price: "$39.99",
+                image: "Images/download.jpg"
+            },
+            3: {
+                name: "Product 3",
+                description: "This is the detailed description for Product 1.",
+                price: "$29.99",
+                image: "Images/download.jpg"
+            },
+            4: {
+                name: "Product 4",
+                description: "This is the detailed description for Product 2.",
+                price: "$39.99",
+                image: "Images/download.jpg"
+            },
+            5: {
+                name: "Product 5",
+                description: "This is the detailed description for Product 1.",
+                price: "$29.99",
+                image: "Images/download.jpg"
+            },
+            6: {
+                name: "Product 6",
+                description: "This is the detailed description for Product 2.",
+                price: "$39.99",
+                image: "Images/download.jpg"
+            },
+            // Add more products as needed
+        };
+
+        // Function to load product details based on URL parameter
+        function loadProductDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');
+
+            if (products[productId]) {
+                document.getElementById('product-name').textContent = products[productId].name;
+                document.getElementById('product-description').textContent = products[productId].description;
+                document.getElementById('product-price').textContent = products[productId].price;
+                document.getElementById('product-image').src = products[productId].image;
+            } else {
+                document.body.innerHTML = "<h1>Product not found</h1>";
+            }
+        }
+
+        // Call the function to load product details
+        loadProductDetails();
+    </script>
+</body>
+</html>
