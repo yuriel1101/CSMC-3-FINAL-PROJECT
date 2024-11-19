@@ -3,8 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
+    <title>Shop Details</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles for the shop details page */
+        #shop-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .shop-details .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .col-2 {
+            flex: 1;
+            max-width: 45%;
+            text-align: left;
+        }
+
+        .recommended-items {
+            margin: 40px 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -14,17 +59,35 @@
         </ul>
     </nav>
 
-    <div class="single-product">
+    <div class="shop-details">
         <div class="row">
             <div class="col-2">
-                <img id="product-image" src="" width="100%" alt="Product Image">
+                <img id="shop-image" src="" alt="Shop Image">
             </div>
             <div class="col-2">
-                <h1 id="product-name"></h1>
-                <p id="product-description"></p>
-                <p><strong>Price: </strong><span id="product-price"></span></p>
-                <button>Add to Cart</button>
+                <h1 id="shop-name"></h1>
+                <p id="shop-about"></p>
+                <p><strong>Location: </strong><span id="shop-location"></span></p>
+                <p><strong>Price Range: </strong><span id="shop-price-range"></span></p>
+                <p>
+                    <strong>Budget Friendly: </strong>
+                    <span id="shop-budget"></span>
+                </p>
             </div>
+        </div>
+
+        <div class="recommended-items">
+            <h2>What to Buy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price Range</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="recommended-table"></tbody>
+            </table>
         </div>
     </div>
 
@@ -33,64 +96,393 @@
     </footer>
 
     <script>
-        // Product data object
-        const products = {
+        // Shop data object
+        const shops = {
             1: {
-                name: "Product 1",
-                description: "This is the detailed description for Product 1.",
-                price: "$29.99",
-                image: "Images/download.jpg"
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
             },
             2: {
-                name: "Product 2",
-                description: "This is the detailed description for Product 2.",
-                price: "$39.99",
-                image: "Images/download.jpg"
+                name: "Shop 2",
+                about: "A modern tech store with the latest gadgets and accessories.",
+                location: "456 Tech Street, Innovatown",
+                priceRange: "$$$",
+                budgetFriendly: false,
+                image: "Images/shop2.jpg",
+                recommended: [
+                    { product: "Wireless Earbuds", price: "$50 - $100", details: "High-quality sound and noise cancellation." },
+                    { product: "Smartwatch", price: "$150 - $300", details: "Feature-rich and stylish." },
+                    { product: "Bluetooth Speaker", price: "$30 - $70", details: "Portable and powerful sound." }
+                ]
             },
-            3: {
-                name: "Product 3",
-                description: "This is the detailed description for Product 1.",
-                price: "$29.99",
-                image: "Images/download.jpg"
+            3:{
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
             },
+
             4: {
-                name: "Product 4",
-                description: "This is the detailed description for Product 2.",
-                price: "$39.99",
-                image: "Images/download.jpg"
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
             },
-            5: {
-                name: "Product 5",
-                description: "This is the detailed description for Product 1.",
-                price: "$29.99",
-                image: "Images/download.jpg"
+
+            5:  {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
             },
-            6: {
-                name: "Product 6",
-                description: "This is the detailed description for Product 2.",
-                price: "$39.99",
-                image: "Images/download.jpg"
+
+            6:  {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
             },
-            // Add more products as needed
+
+            7:   {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+            8:   {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+            9:  {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+            10: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+            11: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            12: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            13: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            14: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            15: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            16: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            17: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            18: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            19: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            20: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            21: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            22: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+            23: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+            24: {
+                name: "Shop 1",
+                about: "A cozy shop offering handmade crafts and unique gifts.",
+                location: "123 Craft Lane, Artville",
+                priceRange: "$ - $$",
+                budgetFriendly: true,
+                image: "Images/landscape.jpg",
+                recommended: [
+                    { product: "Handmade Mug", price: "$10 - $15", details: "Beautiful hand-painted ceramic mugs." },
+                    { product: "Artisanal Soap", price: "$5 - $8", details: "Fragrant and all-natural." },
+                    { product: "Knitted Scarf", price: "$20 - $25", details: "Warm and stylish scarves." }
+                ]
+            },
+
+
+
+
         };
 
-        // Function to load product details based on URL parameter
-        function loadProductDetails() {
+        // Function to load shop details based on URL parameter
+        function loadShopDetails() {
             const urlParams = new URLSearchParams(window.location.search);
-            const productId = urlParams.get('product');
+            const shopId = urlParams.get('shop');
 
-            if (products[productId]) {
-                document.getElementById('product-name').textContent = products[productId].name;
-                document.getElementById('product-description').textContent = products[productId].description;
-                document.getElementById('product-price').textContent = products[productId].price;
-                document.getElementById('product-image').src = products[productId].image;
+            if (shops[shopId]) {
+                const shop = shops[shopId];
+
+                document.getElementById('shop-name').textContent = shop.name;
+                document.getElementById('shop-about').textContent = shop.about;
+                document.getElementById('shop-location').textContent = shop.location;
+                document.getElementById('shop-price-range').textContent = shop.priceRange;
+                document.getElementById('shop-image').src = shop.image;
+
+                const budgetIcon = shop.budgetFriendly ? "✅ Budget Friendly" : "❌ Not Budget Friendly";
+                document.getElementById('shop-budget').textContent = budgetIcon;
+
+                const tableBody = document.getElementById('recommended-table');
+                shop.recommended.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.product}</td>
+                        <td>${item.price}</td>
+                        <td>${item.details}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
             } else {
-                document.body.innerHTML = "<h1>Product not found</h1>";
+                document.body.innerHTML = "<h1>Shop not found</h1>";
             }
         }
 
-        // Call the function to load product details
-        loadProductDetails();
+        // Call the function to load shop details
+        loadShopDetails();
     </script>
 </body>
 </html>

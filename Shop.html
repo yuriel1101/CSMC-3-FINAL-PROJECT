@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TatakTipid</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="sort.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -19,142 +20,350 @@
         </ul>
     </nav>
 
-    <!--- Shop -->
+    <!-- Shops Section -->
+    <div class="small-container">
+        <div class="row">
+            <h2>Shops</h2>
+            <select>
+                <option value="Default Sorting">Default Sorting</option>
+                <option value="Sort by Budget">Sort by Budget</option>
+                <option value="Sort by Location">Sort by Location</option>
+                <option value="Sort by Popularity">Sort by Popularity</option>
+                <option value="Sort by Ratings">Sort by Ratings</option>
+            </select>
+            
+        </div>
+    </div>
 
-        <div class="small-container">
+    <!-- Shop Listings -->
+    <div class="small-container">
+        <h2 class="title">Shops</h2>
+        <div class="row">
+            <!-- Shop 1 -->
+           <div class="col-4" data-budget="1" data-location="Artville" data-popularity="1" data-rating="1.5">
+                <a href="shop-detail.html?shop=1">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 1</h4>
+                    <p>Location: 123 Craft Lane, Artville</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
 
-            <div class="row">
-                <h2>Shops</h2>
-                <select>
-                    <option>Default Sorting</option>
-                    <option>Default Sorting</option>
-                    <option>Default Sorting</option>
-                    <option>Default Sorting</option>
-                    <option>Default Sorting</option>
-                </select>
+            <!-- Shop 2 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=2">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 2</h4>
+                    <p>Location: 456 Tech Street, Innovatown</p>
+                    <p>Price Range: $$$</p>
+                    <p><strong>Budget Friendly: ❌</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 3 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=3">
+                   <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 3</h4>
+                    <p>Location: 789 Boutique Blvd, Style City</p>
+                    <p>Price Range: $$ - $$$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 4 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=4">
+                    <img src="Images/download.jpg" alt="Shop 4">
+                    <h4>Shop 4</h4>
+                    <p>Location: 1010 Market Ave, Bargain Town</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
             </div>
         </div>
 
-        <div class="small-container">
-            <h2 class="title">Products</h2>
-            <div class="row">
-                <div class="col-4">
-                    <a href="shop-detail.html?product=1">
-                        <img src="Images/download.jpg" alt="Product 1">
-                        <h4>Product 1</h4>
-                        <p>This is Product 1</p>
-                    </a>
-                </div>
-                <div class="col-4">
-                    <a href="shop-detail.html?product=2">
-                        <img src="Images/download.jpg" alt="Product 2">
-                        <h4>Product 2</h4>
-                        <p>This is Product 2</p>
-                    </a>
-                </div>
-                <div class="col-4">
-                    <a href="shop-detail.html?product=3">
-                    <img src="Images/download.jpg" alt="Product 3">
-                    <h4>Product 3</h4>
-                    <p>This is Product 3</p>
-                    </a>
-                </div>
-                <div class="col-4">
-                    <a href="shop-detail.html?product=4">
-                    <img src="Images/download.jpg" alt="Product 4">
-                    <h4>Product 4</h4>
-                    <p>This is Product 4</p>
-                    </a>
-                </div>
+        <div class="row">
+            <!-- Shop 1 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=5">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 1</h4>
+                    <p>Location: 123 Craft Lane, Artville</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 2 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=6">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 2</h4>
+                    <p>Location: 456 Tech Street, Innovatown</p>
+                    <p>Price Range: $$$</p>
+                    <p><strong>Budget Friendly: ❌</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 3 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=7">
+                   <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 3</h4>
+                    <p>Location: 789 Boutique Blvd, Style City</p>
+                    <p>Price Range: $$ - $$$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 4 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=8">
+                    <img src="Images/download.jpg" alt="Shop 4">
+                    <h4>Shop 4</h4>
+                    <p>Location: 1010 Market Ave, Bargain Town</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
             </div>
         </div>
 
-        <div class="small-container">
-            <div class="row">
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 1">
-                    <h4>Product 1</h4>
-                    <p>This is Product 1</p>
-                </div>
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 2">
-                    <h4>Product 2</h4>
-                    <p>This is Product 2</p>
-                </div>
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 3">
-                    <h4>Product 3</h4>
-                    <p>This is Product 3</p>
-                </div>
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 4">
-                    <h4>Product 4</h4>
-                    <p>This is Product 4</p>
-                </div>
-                <!-- Add more products as needed -->
+        <div class="row">
+            <!-- Shop 1 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=9">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 1</h4>
+                    <p>Location: 123 Craft Lane, Artville</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 2 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=10">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 2</h4>
+                    <p>Location: 456 Tech Street, Innovatown</p>
+                    <p>Price Range: $$$</p>
+                    <p><strong>Budget Friendly: ❌</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 3 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=11">
+                   <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 3</h4>
+                    <p>Location: 789 Boutique Blvd, Style City</p>
+                    <p>Price Range: $$ - $$$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 4 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=12">
+                    <img src="Images/download.jpg" alt="Shop 4">
+                    <h4>Shop 4</h4>
+                    <p>Location: 1010 Market Ave, Bargain Town</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
             </div>
         </div>
 
-        <div class="small-container">
-            <div class="row">
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 1">
-                    <h4>Product 1</h4>
-                    <p>This is Product 1</p>
-                </div>
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 2">
-                    <h4>Product 2</h4>
-                    <p>This is Product 2</p>
-                </div>
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 3">
-                    <h4>Product 3</h4>
-                    <p>This is Product 3</p>
-                </div>
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 4">
-                    <h4>Product 4</h4>
-                    <p>This is Product 4</p>
-                </div>
-                <!-- Add more products as needed -->
+        <div class="row">
+            <!-- Shop 1 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=13">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 1</h4>
+                    <p>Location: 123 Craft Lane, Artville</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 2 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=14">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 2</h4>
+                    <p>Location: 456 Tech Street, Innovatown</p>
+                    <p>Price Range: $$$</p>
+                    <p><strong>Budget Friendly: ❌</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 3 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=15">
+                   <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 3</h4>
+                    <p>Location: 789 Boutique Blvd, Style City</p>
+                    <p>Price Range: $$ - $$$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 4 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=16">
+                    <img src="Images/download.jpg" alt="Shop 4">
+                    <h4>Shop 4</h4>
+                    <p>Location: 1010 Market Ave, Bargain Town</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
             </div>
         </div>
 
-         <div class="small-container">
-            <div class="row">
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 1">
-                    <h4>Product 1</h4>
-                    <p>This is Product 1</p>
-                </div>
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 2">
-                    <h4>Product 2</h4>
-                    <p>This is Product 2</p>
-                </div>
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 3">
-                    <h4>Product 3</h4>
-                    <p>This is Product 3</p>
-                </div>
-                <div class="col-4">
-                    <img src="Images/download.jpg" alt="Product 4">
-                    <h4>Product 4</h4>
-                    <p>This is Product 4</p>
-                </div>
-                <!-- Add more products as needed -->
+        <div class="row">
+            <!-- Shop 1 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=13">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 1</h4>
+                    <p>Location: 123 Craft Lane, Artville</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 2 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=14">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 2</h4>
+                    <p>Location: 456 Tech Street, Innovatown</p>
+                    <p>Price Range: $$$</p>
+                    <p><strong>Budget Friendly: ❌</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 3 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=15">
+                   <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 3</h4>
+                    <p>Location: 789 Boutique Blvd, Style City</p>
+                    <p>Price Range: $$ - $$$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 4 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=16">
+                    <img src="Images/download.jpg" alt="Shop 4">
+                    <h4>Shop 4</h4>
+                    <p>Location: 1010 Market Ave, Bargain Town</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
             </div>
         </div>
-        
+
+        <div class="row">
+            <!-- Shop 1 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=17">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 1</h4>
+                    <p>Location: 123 Craft Lane, Artville</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 2 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=18">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 2</h4>
+                    <p>Location: 456 Tech Street, Innovatown</p>
+                    <p>Price Range: $$$</p>
+                    <p><strong>Budget Friendly: ❌</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 3 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=19">
+                   <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 3</h4>
+                    <p>Location: 789 Boutique Blvd, Style City</p>
+                    <p>Price Range: $$ - $$$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 4 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=20">
+                    <img src="Images/download.jpg" alt="Shop 4">
+                    <h4>Shop 4</h4>
+                    <p>Location: 1010 Market Ave, Bargain Town</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
         </div>
 
+        <div class="row">
+            <!-- Shop 1 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=21">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 1</h4>
+                    <p>Location: 123 Craft Lane, Artville</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
 
-        
+            <!-- Shop 2 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=22">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 2</h4>
+                    <p>Location: 456 Tech Street, Innovatown</p>
+                    <p>Price Range: $$$</p>
+                    <p><strong>Budget Friendly: ❌</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 3 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=23">
+                   <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 3</h4>
+                    <p>Location: 789 Boutique Blvd, Style City</p>
+                    <p>Price Range: $$ - $$$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+
+            <!-- Shop 4 -->
+            <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
+                <a href="shop-detail.html?shop=24">
+                    <img src="Images/download.jpg" alt="Shop 4">
+                    <h4>Shop 4</h4>
+                    <p>Location: 1010 Market Ave, Bargain Town</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
+        </div>
+
+    </div>
 
     <!-- Footer with Social Media Links -->
     <footer>
-        
         <a href="#"><img src="icon-x.png" alt="X icon"></a>
         <a href="#"><img src="icon-instagram.png" alt="Instagram icon"></a>
         <a href="#"><img src="icon-youtube.png" alt="YouTube icon"></a>
@@ -162,4 +371,3 @@
     </footer>
 </body>
 </html>
-
