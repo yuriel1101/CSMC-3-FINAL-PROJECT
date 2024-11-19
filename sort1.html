@@ -3,155 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="sort.js"></script>
+    <title>TatakTipid</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Budget</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Tipid Finder</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Shops Section -->
     <div class="small-container">
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="1" data-rating="1.5">
-            <a href="shop-detail.html?shop=1">
-                <img src="Images/download.jpg" alt="Shop 1">
-                <h4>Shop 1</h4>
-                <p>Location: 123 Craft Lane, Artville</p>
-                <p>Price Range: $ - $$</p>
-                <p><strong>Budget Friendly: ✅</strong></p>
-            </a>
-        </div>
-
-        <!-- Shop 2 -->
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="11" data-rating="4.5">
-            <a href="shop-detail.html?shop=2">
-                <img src="Images/download.jpg" alt="Shop 1">
-                <h4>Shop 2</h4>
-                <p>Location: 456 Tech Street, Innovatown</p>
-                <p>Price Range: $$$</p>
-                <p><strong>Budget Friendly: ❌</strong></p>
-            </a>
-        </div>
-
-        <!-- Shop 3 -->
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="10" data-rating="4.5">
-            <a href="shop-detail.html?shop=3">
-               <img src="Images/download.jpg" alt="Shop 1">
-                <h4>Shop 3</h4>
-                <p>Location: 789 Boutique Blvd, Style City</p>
-                <p>Price Range: $$ - $$$</p>
-                <p><strong>Budget Friendly: ✅</strong></p>
-            </a>
-        </div>
-
-        <!-- Shop 4 -->
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="9" data-rating="4.5">
-            <a href="shop-detail.html?shop=4">
-                <img src="Images/download.jpg" alt="Shop 4">
-                <h4>Shop 4</h4>
-                <p>Location: 1010 Market Ave, Bargain Town</p>
-                <p>Price Range: $ - $$</p>
-                <p><strong>Budget Friendly: ✅</strong></p>
-            </a>
+        <div class="row">
+            <h2>Shops</h2>
+            <select id="sort-options" onchange="sortShops()">
+                <option value="default">Default Sorting</option>
+                <option value="price-asc">Sort by Price: Low to High</option>
+                <option value="price-desc">Sort by Price: High to Low</option>
+            </select>
         </div>
     </div>
 
-    <div class="row">
-        <!-- Shop 1 -->
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="8" data-rating="4.5">
-            <a href="shop-detail.html?shop=5">
-                <img src="Images/download.jpg" alt="Shop 1">
-                <h4>Shop 5</h4>
-                <p>Location: 123 Craft Lane, Artville</p>
-                <p>Price Range: $ - $$</p>
-                <p><strong>Budget Friendly: ✅</strong></p>
-            </a>
-        </div>
+    <!-- Shop Listings -->
+    <div class="small-container">
+        <h2 class="title">Shops</h2>
+        <div class="row">
+            <!-- Shop 1 -->
+            <div class="col-4">
+                <a href="shop-detail.html?shop=1">
+                    <img src="Images/download.jpg" alt="Shop 1">
+                    <h4>Shop 1</h4>
+                    <p>Location: 123 Craft Lane, Artville</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
 
-        <!-- Shop 2 -->
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="7" data-rating="4.5">
-            <a href="shop-detail.html?shop=6">
-                <img src="Images/download.jpg" alt="Shop 1">
-                <h4>Shop 6</h4>
-                <p>Location: 456 Tech Street, Innovatown</p>
-                <p>Price Range: $$$</p>
-                <p><strong>Budget Friendly: ❌</strong></p>
-            </a>
-        </div>
+            <!-- Shop 2 -->
+            <div class="col-4">
+                <a href="shop-detail.html?shop=2">
+                    <img src="Images/download.jpg" alt="Shop 2">
+                    <h4>Shop 2</h4>
+                    <p>Location: 456 Tech Street, Innovatown</p>
+                    <p>Price Range: $$$</p>
+                    <p><strong>Budget Friendly: ❌</strong></p>
+                </a>
+            </div>
 
-        <!-- Shop 3 -->
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="6" data-rating="4.5">
-            <a href="shop-detail.html?shop=7">
-               <img src="Images/download.jpg" alt="Shop 1">
-                <h4>Shop 7</h4>
-                <p>Location: 789 Boutique Blvd, Style City</p>
-                <p>Price Range: $$ - $$$</p>
-                <p><strong>Budget Friendly: ✅</strong></p>
-            </a>
-        </div>
+            <!-- Shop 3 -->
+            <div class="col-4">
+                <a href="shop-detail.html?shop=3">
+                    <img src="Images/download.jpg" alt="Shop 3">
+                    <h4>Shop 3</h4>
+                    <p>Location: 789 Boutique Blvd, Style City</p>
+                    <p>Price Range: $$ - $$$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
 
-        <!-- Shop 4 -->
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="5" data-rating="4.5">
-            <a href="shop-detail.html?shop=8">
-                <img src="Images/download.jpg" alt="Shop 4">
-                <h4>Shop 8</h4>
-                <p>Location: 1010 Market Ave, Bargain Town</p>
-                <p>Price Range: $ - $$</p>
-                <p><strong>Budget Friendly: ✅</strong></p>
-            </a>
+            <!-- Shop 4 -->
+            <div class="col-4">
+                <a href="shop-detail.html?shop=4">
+                    <img src="Images/download.jpg" alt="Shop 4">
+                    <h4>Shop 4</h4>
+                    <p>Location: 1010 Market Ave, Bargain Town</p>
+                    <p>Price Range: $ - $$</p>
+                    <p><strong>Budget Friendly: ✅</strong></p>
+                </a>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <!-- Shop 1 -->
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="4" data-rating="4.5">
-            <a href="shop-detail.html?shop=9">
-                <img src="Images/download.jpg" alt="Shop 1">
-                <h4>Shop 9</h4>
-                <p>Location: 123 Craft Lane, Artville</p>
-                <p>Price Range: $ - $$</p>
-                <p><strong>Budget Friendly: ✅</strong></p>
-            </a>
-        </div>
+    <!-- Footer with Social Media Links -->
+    <footer>
+        <a href="#"><img src="icon-x.png" alt="X icon"></a>
+        <a href="#"><img src="icon-instagram.png" alt="Instagram icon"></a>
+        <a href="#"><img src="icon-youtube.png" alt="YouTube icon"></a>
+        <a href="#"><img src="icon-linkedin.png" alt="LinkedIn icon"></a>
+    </footer>
 
-        <!-- Shop 2 -->
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="3" data-rating="4.5">
-            <a href="shop-detail.html?shop=10">
-                <img src="Images/download.jpg" alt="Shop 1">
-                <h4>Shop 10</h4>
-                <p>Location: 456 Tech Street, Innovatown</p>
-                <p>Price Range: $$$</p>
-                <p><strong>Budget Friendly: ❌</strong></p>
-            </a>
-        </div>
+    <!-- Sorting Script -->
+    <script>
+        function sortShops() {
+            const container = document.querySelector('.small-container .row');
+            const shops = Array.from(container.children);
+            const sortOption = document.getElementById('sort-options').value;
 
-        <!-- Shop 3 -->
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="2" data-rating="4.5">
-            <a href="shop-detail.html?shop=11">
-               <img src="Images/download.jpg" alt="Shop 1">
-                <h4>Shop 11</h4>
-                <p>Location: 789 Boutique Blvd, Style City</p>
-                <p>Price Range: $$ - $$$</p>
-                <p><strong>Budget Friendly: ✅</strong></p>
-            </a>
-        </div>
+            // Sort the shops by price range
+            shops.sort((a, b) => {
+                const priceA = getPriceRange(a);
+                const priceB = getPriceRange(b);
 
-        <!-- Shop 4 -->
-        <div class="col-4" data-budget="1" data-location="Artville" data-popularity="12" data-rating="4.5">
-            <a href="shop-detail.html?shop=12">
-                <img src="Images/download.jpg" alt="Shop 4">
-                <h4>Shop 12</h4>
-                <p>Location: 1010 Market Ave, Bargain Town</p>
-                <p>Price Range: $ - $$</p>
-                <p><strong>Budget Friendly: ✅</strong></p>
-            </a>
-        </div>
-    </div>
-    </div>
-    
-    <select>
-        <option value="Sort by Budget">Sort by Budget</option>
-        <option value="Sort by Location">Sort by Location</option>
-        <option value="Sort by Popularity">Sort by Popularity</option>
-        <option value="Sort by Ratings">Sort by Ratings</option>
-    </select>
-    
-    
+                if (sortOption === 'price-asc') {
+                    return priceA - priceB;
+                } else if (sortOption === 'price-desc') {
+                    return priceB - priceA;
+                } else {
+                    return 0; // Default sorting (no change)
+                }
+            });
+
+            // Reorder the shops in the container
+            shops.forEach(shop => container.appendChild(shop));
+        }
+
+        function getPriceRange(shop) {
+            const priceText = shop.querySelector('p:nth-of-type(3)').textContent;  // Ensure this is the correct p tag
+            if (priceText.includes('$ - $$')) return 1; // Lowest price range
+            if (priceText.includes('$$ - $$$')) return 2;
+            if (priceText.includes('$$$')) return 3; // Highest price range
+            return 0; // Default for unrecognized format
+        }
+    </script>
 </body>
 </html>

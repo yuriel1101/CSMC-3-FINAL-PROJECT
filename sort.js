@@ -1,43 +1,54 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const selectElement = document.querySelector("select");
-    const shopContainers = document.querySelectorAll(".small-container .row"); // Select all rows
+document.addEventListener("DOMContentLoaded", function() {
+    // Get references to the select element and all shop rows
+    const sortSelect = document.querySelector('select');
+    const shopContainers = document.querySelectorAll('.small-container .row');  // All rows with shops
+    
+    // Function to sort shops within a single container
+    function sortShops(container, criteria) {
+        const shops = Array.from(container.children);  // All shop divs inside the row
+        let sortedShops;
 
-    selectElement.addEventListener("change", (event) => {
-        const criterion = event.target.value;
+        switch (criteria) {
+            case "Sort by Budget":
+                sortedShops = shops.sort((a, b) => {
+                    return parseInt(a.getAttribute("data-budget")) - parseInt(b.getAttribute("data-budget"));
+                });
+                break;
+            case "Sort by Location":
+                sortedShops = shops.sort((a, b) => {
+                    const locationA = a.querySelector('p').textContent.split(':')[1].trim();
+                    const locationB = b.querySelector('p').textContent.split(':')[1].trim();
+                    return locationA.localeCompare(locationB);
+                });
+                break;
+            case "Sort by Popularity":
+                sortedShops = shops.sort((a, b) => {
+                    return parseInt(b.getAttribute("data-popularity")) - parseInt(a.getAttribute("data-popularity"));
+                });
+                break;
+            case "Sort by Ratings":
+                sortedShops = shops.sort((a, b) => {
+                    return parseFloat(b.getAttribute("data-rating")) - parseFloat(a.getAttribute("data-rating"));
+                });
+                break;
+            default:
+                sortedShops = shops;
+        }
 
-        shopContainers.forEach(shopContainer => {
-            const shops = Array.from(shopContainer.querySelectorAll(".col-4"));
+        // Re-append sorted shops to the container
+        sortedShops.forEach(shop => {
+            container.appendChild(shop);  // Re-append the shop div to the container
+        });
+    }
 
-            // Sorting logic
-            const sortedShops = [...shops].sort((a, b) => {
-                switch (criterion) {
-                    case "Sort by Budget":
-                        return parseFloat(a.dataset.budget) - parseFloat(b.dataset.budget); // Ascending by budget
-                    case "Sort by Location":
-                        return a.dataset.location.localeCompare(b.dataset.location); // Alphabetical by location
-                    case "Sort by Popularity":
-                        // Ensure we parse the popularity correctly as numbers
-                        const popularityA = parseInt(a.dataset.popularity);
-                        const popularityB = parseInt(b.dataset.popularity);
-                        return popularityB - popularityA; // Descending by popularity
-                    case "Sort by Ratings":
-                        return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating); // Descending by rating
-                    default:
-                        return 0; // Default sorting (no change)
-                }
-            });
-
-            // Debugging output to verify the sort
-            console.log("Sorted Shops:", sortedShops.map(shop => {
-                return {
-                    shop: shop.querySelector('h4').textContent,
-                    popularity: shop.dataset.popularity
-                };
-            }));
-
-            // Clear and append sorted shops
-            shopContainer.innerHTML = ""; // Clear the current container
-            sortedShops.forEach((shop) => shopContainer.appendChild(shop)); // Append sorted shops
+    // Event listener for when the sorting option changes
+    sortSelect.addEventListener('change', function() {
+        const selectedValue = this.value;
+        shopContainers.forEach(container => {
+            sortShops(container, selectedValue);  // Sort each row of shops
         });
     });
+
+    // Initial sort based on the default value
+    sortShops(shopContainers[0], sortSelect.value);
 });
