@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TatakTipid - Budget Tracker</title>
+    <title>Taktak Badyet</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -14,54 +14,96 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="budget.html">Budget</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="tipidfinder.html">Tipid Finder</a></li>
+            <li><a href="Budget_Tracker.html">Services</a></li>
+            <li><a href="Shop.html">Tipid Finder</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
     <header>
-        <h1>Budget Tracker</h1>
-        <p>Manage your weekly budget efficiently and visualize your expenses.</p>
+        <section class="Title">
+            <h1>Taktak Badyet</h1>
+            <p>Manage your weekly budget efficiently and visualize your expenses.</p>
+        </section>
     </header>
+
+     <!-- Budget Plans -->
+     <section id="budget-plans">
+        <h2>Recommended Budget Plan</h2>
+        <div id="plan-container">
+            <div class="plan" id="basic-needs-plan">
+                <h3>Basic Needs Budget</h3>
+                <ul>
+                    <li>Food: 40% - Home-cooked meals using affordable ingredients.</li>
+                    <li>Transportation: 30% - Public transit, walking, or carpooling.</li>
+                    <li>School Supplies: 10% - Essentials like pens, notebooks, and printing.</li>
+                    <li>Others: 20% - Utilities, emergency savings, or minimal leisure.</li>
+                </ul>
+            </div>
+            <div class="plan" id="balanced-living-plan">
+                <h3>Balanced Living Budget</h3>
+                <ul>
+                    <li>Food: 35% - Healthy meals with occasional dining out.</li>
+                    <li>Transportation: 25% - Public transit, biking, or fuel expenses for private vehicles.</li>
+                    <li>School Supplies: 15% - Covers necessary materials and optional resources.</li>
+                    <li>Others: 25% - Leisure, savings, utilities, or social activities.</li>
+                </ul>
+            </div>
+            <div class="plan" id="flexible-comfort-plan">
+                <h3>Flexible Comfort Budget</h3>
+                <ul>
+                    <li>Food: 30% - Quality meals, regular dining out, or specialty groceries.</li>
+                    <li>Transportation: 20% - Ride-sharing, private vehicles, or convenience options.</li>
+                    <li>School Supplies: 20% - Advanced tools, software, or special projects.</li>
+                    <li>Others: 30% - Entertainment, travel, investments, or luxury expenses.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <main>
         <section id="budget-input">
             <h2>Enter Your Weekly Budget</h2>
-            <form id="budget-form">
-                <label for="weekly-budget">Weekly Budget:</label>
+            <form id="budget-form"> 
+                <label for="weekly-budget">Weekly Allowance</label>
                 <input type="number" id="weekly-budget" name="weekly-budget" required>
+
+                <h4>Weekly Expenses</h4>
+
+                <!-- Add category button -->
+                <label for="new-category">Add New Expense Category</label>
+                <input type="text" id="new-category" placeholder="Enter category name">
+                <button type="button" id="add-category" class="pulse">Add Category</button>
+
+                <!-- Dynamic categories go here -->
+                <div id="expense-categories"></div>
                 
-                <label for="food">Food:</label>
-                <input type="number" id="food" name="food" required>
-                
-                <label for="transport">Transport:</label>
-                <input type="number" id="transport" name="transport" required>
-                
-                <label for="entertainment">Entertainment:</label>
-                <input type="number" id="entertainment" name="entertainment" required>
-                
-                <label for="bills">Bills:</label>
-                <input type="number" id="bills" name="bills" required>
-                
-                <!-- The button must be here, below the last input -->
-                <button type="submit">Submit</button>
+                <br>
+                <!-- Submit button -->
+                <button type="submit" class="pulse">Submit</button>
             </form>
         </section>
         
 
+        <!-- Budget Distribution Pie Chart -->
         <section id="budget-chart">
             <h2>Budget Distribution</h2>
-            <canvas id="myChart"></canvas> <!-- Removed width and height attributes -->
+            <canvas id="myChart"></canvas>
         </section>
-        
+
+        <!-- Expense Breakdown Bar Chart -->
+        <section id="expense-breakdown-chart">
+            <h2>Expense Breakdown by Percentage</h2>
+            <canvas id="myBarChart"></canvas>
+        </section>
     </main>
 
     <footer>
-        <a href="#"><img src="icon-x.png" alt="X icon"></a>
-        <a href="#"><img src="icon-instagram.png" alt="Instagram icon"></a>
-        <a href="#"><img src="icon-youtube.png" alt="YouTube icon"></a>
-        <a href="#"><img src="icon-linkedin.png" alt="LinkedIn icon"></a>
+        <a href="#"><img src="Images/x.webp" alt="X icon"></a>
+        <a href="#"><img src="Images/insta.webp" alt="Instagram icon"></a>
+        <a href="#"><img src="Images/youtube.webp" alt="YouTube icon"></a>
+        <a href="#"><img src="Images/link.webp" alt="LinkedIn icon"></a>
+        <a href="#"><img src="Images/facebook.webp" alt="Facebook icon"></a>
     </footer>
 
     <script src="script.js"></script>

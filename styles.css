@@ -7,11 +7,13 @@
 
 body {
     font-family: Arial, sans-serif;
+    margin: 0; /* Removes any default margin causing extra white spaces */
+    background-color: #72212e; /* Deep red for branding */
 }
 
 /* Navigation Bar */
 nav {
-    background-color: #fff;
+    background-color: #7d212b;
     padding: 15px;
     text-align: right;
 }
@@ -27,7 +29,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #000;
+    color: #f2e9ea;
     font-weight: bold;
 }
 
@@ -39,38 +41,95 @@ nav ul li a {
     align-items: center;
     height: 100vh; /* Full screen height */
     text-align: center;
-    background-color: #f5f5f5;
+    background-image: url('Images/UPMINPIC.png');
+    background-size: cover; /* Ensure the image covers the section */
+    background-position: center; /* Center the background image */
+    position: relative; /* Set the hero container as relative for layering */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for better text contrast */
+    z-index: 1; /* Keep the overlay below the content */
+}
+
+.hero h1,
+.hero p,
+.hero button {
+    position: relative; /* Place content above the overlay */
+    z-index: 2; /* Ensure content is clickable and above the overlay */
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: 100px;
     font-weight: bold;
+    color: #f7ab27; /* Bright gold for strong contrast */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Add a subtle shadow for depth */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scaling transitions */
+}
+
+.hero h1:hover {
+    color: #ffe070; /* Lighter gold on hover */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
 .hero p {
-    font-size: 20px;
-    color: #666;
-    margin-top: 10px;
+    font-size: 16px;
+    color: #f2e9ea; /* Light gray for elegance */
+    margin-top: 8px;
+    padding: 10px 15px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and scaling transitions */
+}
+
+.hero p:hover {
+    color: #ffffff; /* Pure white on hover for more contrast */
+    transform: scale(1.02); /* Slight zoom effect */
 }
 
 .hero button {
     margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
+    background-color: #7d212b; /* Deep red for contrast */
+    color: #FFFFFF; /* White text */
+    border: none;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
+
+.hero button:hover {
+    background-color: #f3a925; /* Vibrant Gold on hover */
+    transform: scale(1.1); /* Larger zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Pronounced shadow */
+}
+
+.hero button:active {
+    transform: scale(1.05); /* Slightly shrink on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reduce shadow */
+}
+
+
 
 /* Services Section */
 .services {
     text-align: center;
     padding: 60px 20px;
-    background-color: #f9f9f9;
+    background-color: #7c1518; /* Rich, deep red for contrast */
 }
 
 .services h2 {
-    font-size: 32px;
+    font-size: 40px;
     margin-bottom: 40px;
-    color: #333;
+    color: #f3a925; /* Bright yellow-gold for stronger pop */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Subtle shadow to make the title stand out */
 }
 
 /* Container for Service Boxes */
@@ -78,47 +137,79 @@ nav ul li a {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 40px;
     max-width: 1000px;
     margin: 0 auto;
 }
 
 /* Individual Service Box */
 .service-box {
-    background-color: #fff;
-    border: 2px solid #ddd;
+    background-color: #0b4424; /* Dark green background for contrast */
+    border: 2px solid #0b4424;
     border-radius: 10px;
     padding: 30px;
     width: 220px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    animation: pop-in 0.8s ease-in-out; /* Pop-in animation */
+    animation-delay: calc(0.2s * var(--delay, 1)); /* Staggered animation if desired */
 }
 
 .service-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px) scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Pronounced shadow */
 }
 
 /* Service Icon */
 .service-icon {
-    font-size: 40px;
+    font-size: 50px; /* Slightly larger icons */
     margin-bottom: 20px;
     color: #4CAF50; /* Icon color */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.service-box:hover .service-icon {
+    color: #9cff57; /* Brighter green on hover */
+    transform: rotate(360deg); /* Spin effect on hover */
 }
 
 /* Service Title */
 .service-box h3 {
-    font-size: 20px;
+    font-size: 22px; /* Increase title size */
     margin-bottom: 10px;
-    color: #333;
+    color: #ffe300; /* Vibrant yellow */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Shadow for more depth */
+    transition: color 0.3s ease;
 }
+
 
 /* Service Description */
 .service-box p {
     font-size: 16px;
-    color: #666;
+    color: #ffffff;
     line-height: 1.5;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.service-box:hover p {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Animation: Pop-In Effect */
+@keyframes pop-in {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 
@@ -126,18 +217,18 @@ nav ul li a {
 .About {
     text-align: center;
     padding: 60px 20px;
-    background-color: #f9f9f9;
+    background-color: #7c1518;
 }
 
 .About h1 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #333;
+    color: #f1a929;
 }
 
 .About p {
     font-size: 18px;
-    color: #666;
+    color: #FFFFFF;
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
@@ -150,17 +241,21 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #fff;
+    background:#7c1518;
     padding: 60px 20px;
 }
 
 .course-selection h2 {
-    font-size: 24px;
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #f3a925; /* Bright yellow-gold for stronger pop */
+    text-shadow: 2pFx 2px 6px rgba(0, 0, 0, 0.7); /* Subtle shadow to make the title stand out */
+    
 }
 
 .course-selection p {
     font-size: 16px;
-    color: #666;
+    color: #FFFFFF;
     margin-bottom: 20px;
 }
 
@@ -174,51 +269,32 @@ nav ul li a {
 
 .course-box {
     padding: 20px;
-    border: 2px solid #ddd;
+    border: 2px solid #f1a929;
     border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
-    text-align: center;
-}
-
-/* Course Selection Section */
-.course-selection {
-    text-align: center;
-    background-color: #fff;
-    padding: 60px 20px;
-}
-
-.course-selection h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.course-selection p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 30px;
-}
-
-/* Course Options Flex Container */
-.course-options {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Individual Course Box */
-.course-box {
-    position: relative;
+    text-align: center;position: relative;
     width: 250px;
-    height: 350px; /* Adjusted height for portrait orientation */
+    height: 350px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Course Selection Section */
+
+/* Course Options Flex Container */
+.course-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allow wrapping of course boxes */
 }
 
 /* Hover Effect */
@@ -233,7 +309,7 @@ nav ul li a {
     bottom: 0;
     width: 100%;
     padding: 15px 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+    background-color: #0d4423; /* Dark overlay for readability */
     color: #fff;
     font-size: 18px;
     text-align: center;
@@ -246,76 +322,401 @@ footer {
     justify-content: center;
     align-items: center;
     height: 100px; /* Adjust as needed */
-    background-color: #f5f5f5;
+    background-color: #7d212b;
 }
 
 footer a {
     margin: 0 10px;
 }
 
-#budget-input {
-    padding: 30px;
+footer a img {
+    width: 32px; /* Set the width of the icons */
+    height: 32px; /* Set the height of the icons */
+    object-fit: contain; /* Ensures icons maintain their aspect ratio */
+    transition: transform 0.2s ease; /* Add a hover effect (optional) */
+}
+
+/* Optional hover effect */
+footer a img:hover {
+    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+}
+
+
+/*budget*/
+
+/* Hero Section Styling */
+/* Updated Styles for Title Section */
+/* Apply the desired background color to the parent container or body */
+
+/* Existing .Title Styling with Updated Gradient Border */
+.Title {
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #00573f; /* Deep green for branding */
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 16px; /* Rounder corners for the border */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    position: relative; /* For pseudo-elements */
+    border: 4px solid transparent; /* Base for gradient border */
+    background-clip: padding-box; /* Ensures inner content doesn't overlap the border */
+    z-index: 1;
 }
 
-#budget-input h2 {
-    font-size: 28px;
+/* Gradient Border Effect */
+.Title::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(45deg, #00573f, #008a5e, #00b574); /* Gradient effect */
+    border-radius: 16px; /* Matches .Title radius */
+    z-index: -1; /* Ensures it's behind the content */
+}
+
+/* Text Heading */
+.Title h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #f3a925; /* Bright gold for text */
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    border: 2px dashed #ffffff; /* Fancy dashed border for text */
+    padding: 10px; /* Space around the text */
+    display: inline-block; /* Ensures the border fits tightly */
+    border-radius: 8px; /* Slight rounding for the text border */
+}
+
+/* Paragraph Text */
+.Title p {
+    font-size: 18px;
+    color: #ffffff; /* Light gray for description */
+    margin: 10px 0;
+    border: 2px solid #f3a925; /* Gold border */
+    padding: 10px; /* Space between text and border */
+    border-radius: 8px; /* Rounded corners */
+    display: inline-block; /* Fit the border tightly to text */
+}
+
+/* Budget Plans Section */
+#budget-plans {
+    padding: 40px;
+    background: linear-gradient(135deg, #004d32, #006b44); /* Gradient background */
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin-top: 30px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Budget Plans Heading */
+#budget-plans h2 {
+    font-size: 36px;
+    color: #f3a925; /* Bright gold for title */
     margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-#budget-input label {
-    display: block;
-    margin: 10px 0 5px;
+/* Plan Container */
+#plan-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensure plans wrap on smaller screens */
+    padding-top: 20px;
+}
+
+/* Individual Budget Plan */
+.plan {
+    background: linear-gradient(135deg, #00b574, #007a58); /* Gradient for individual plans */
+    color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 30%;
+    min-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px;
+    animation: slideInUp 1s ease-out;
+}
+
+/* Hover Effect on Budget Plans */
+.plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Plan Title */
+.plan h3 {
+    font-size: 28px;
+    color: #f3a925;
+    margin-bottom: 20px;
     font-weight: bold;
 }
 
+/* List Items in Budget Plans */
+.plan ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.plan li {
+    font-size: 16px;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* Specific Budget Plan Details */
+#basic-needs-plan {
+    background: linear-gradient(135deg, #8a1538, #b0203c); /* Unique gradient for this plan */
+}
+
+#balanced-living-plan {
+    background: linear-gradient(135deg, #8e715f, #bfa67a); /* Unique gradient for this plan */
+}
+
+#flexible-comfort-plan {
+    background: linear-gradient(135deg, #00573f, #2e8b57); /* Unique gradient for this plan */
+}
+
+/* Animation for the Budget Plans */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Expense Categories */
+/* Budget Input Section */
+#budget-input {
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #7d212b, #8a1538); /* Gradient background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    animation: fadeIn 1.5s ease-in-out; /* Smooth fade-in animation */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Headings */
+#budget-input h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: #f3a925; /* Bright gold */
+    animation: slideInTop 1s ease-out;
+}
+
+@keyframes slideInTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Labels */
+#budget-input label {
+    display: block;
+    font-size: 20px;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #f3a925; /* Gold accent */
+    text-align: center;
+    animation: popIn 1.2s ease-out;
+}
+
+/* Input Fields */
 #budget-input input {
     padding: 10px;
-    width: 80%;
-    max-width: 300px;
-    border: 2px solid #ddd;
+    width: 250px;
+    border: 2px solid #f3a925; /* Gold border */
     border-radius: 5px;
     margin: 0 auto 15px;
     display: block;
+    animation: fadeIn 2s ease-in;
 }
 
+/* Button Style */
 #budget-input button {
     padding: 10px 15px;
-    margin-top: 15px;
-    background-color: #4CAF50;
-    color: white;
+    background: linear-gradient(45deg, #f3a925, #ffe070); /* Gradient gold */
+    color: #ffffff; /* White text */
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 16px;
+    cursor: pointer;
     width: 80%;
     max-width: 300px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 15px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out; /* Smooth scaling on hover */
 }
 
-#budget-input button:hover {
-    background-color: #45a049;
+/* Add Pulse Effect Only to Specific Buttons */
+#budget-input button.pulse {
+    animation: pulse 1.5s infinite; /* Pulse effect */
 }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Hover Effect for All Buttons */
+#budget-input button:hover {
+    background: linear-gradient(45deg, #ffe070, #f3a925); /* Reverse gradient */
+}
+
+/* Expense Categories Container */
+#expense-categories {
+    display: flex;
+    flex-wrap: wrap; /* Ensures categories wrap to the next row if needed */
+    gap: 20px; /* Space between cards */
+    justify-content: center; /* Center the categories */
+    margin-top: 20px; /* Adds spacing from the budget input */
+}
+
+/* Expense Category Cards */
+.category {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #00573f, #007d4b); /* Gradient for category */
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px; /* Fixed width for consistent alignment */
+    height: 300px; /* Fixed height for uniformity */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(100%); /* Start off-screen */
+}
+
+/* Fun Bounce-in Effect */
+.category.slide-in {
+    opacity: 1;
+    transform: translateY(0);
+    animation: bounceIn 1.2s ease-out;
+}
+
+/* Bounce Animation */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(100%);
+    }
+    50% {
+        transform: translateY(-10%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Labels in Categories */
+.category label {
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #f3a925; /* Gold accent */
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    display: block;
+}
+
+/* Inputs in Categories */
+.category input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #f3a925; /* Gold border */
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Chart Section Centering */
+/* Center the chart container */
 
 #budget-chart {
-    text-align: center;
+    display: none;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;    /* Centers vertically */
     padding: 20px;
+    flex-direction: column; /* Ensures content stacks properly */
 }
 
-#myChart {
-    width: 600px;  /* Landscape width */
-    height: 300px; /* Landscape height */
-    max-width: none; /* Prevent scaling with parent */
-    max-height: none; /* Prevent scaling with parent */
-    display: inline-block; /* To keep it centered */
+/* Initially hide the charts */
+#expense-breakdown-chart {
+    display: none; /* Hidden by default */
 }
+
+
+/* Center the canvas inside the container */
+#myChart {
+    display: block;
+    margin: 0 auto; /* Horizontal centering for inline-block or block elements */
+    width: 1000px; 
+    height:800px;
+    max-width: 100%; /* Allows responsiveness */
+    max-height: 100%; /* Allows responsiveness */
+
+    
+}
+
+
+/* Pop-in Animation */
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
 
 /* shop */
 
-/* Container for product rows */
 /* Container for product rows */
 .small-container {
     max-width: 1500px; /* Increased for wider layout */
